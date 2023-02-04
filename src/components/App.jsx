@@ -3,9 +3,7 @@ import { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/feedbackOptions';
 import { Statistics } from './Statistics/statistics';
 import { Notification } from './Notification/notification';
-let totalValue = 0;
-let positiveProcentage = 0;
-let kliker = 0;
+
 export class App extends Component {
   state = {
     good: 0,
@@ -37,21 +35,18 @@ export class App extends Component {
         };
       }
     });
-    kliker++;
   };
 
   countPositiveFeedbackPercentage = () => {
-    positiveProcentage =
+    let positiveProcentage =
       (this.state.good /
         (this.state.good + this.state.neutral + this.state.bad)) *
       100;
-    console.log('procentowanie');
-    return positiveProcentage;
+
+    return isNaN(positiveProcentage) ? 0 : positiveProcentage;
   };
   countTotalFeedback = () => {
-    totalValue = this.state.good + this.state.neutral + this.state.bad;
-    console.log('sumowanie');
-    return totalValue;
+    return this.state.good + this.state.neutral + this.state.bad;
   };
 
   render() {
@@ -65,7 +60,7 @@ export class App extends Component {
         />
         <FeedbackOptions options="Bad" onLeaveFeedback={this.btnIncrement} />
         <h2>Statistics</h2>
-        {kliker === 0 ? (
+        {this.countTotalFeedback() === 0 ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics
