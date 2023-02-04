@@ -3,6 +3,9 @@ import { Component } from 'react';
 
 export class Statistics extends Component {
   state = {};
+  static defaultProps = {
+    positivePercentage: 0,
+  };
   render() {
     const { good, neutral, bad, total, positivePercentage } = this.props;
     return (
