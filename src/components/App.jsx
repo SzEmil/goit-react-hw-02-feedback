@@ -16,6 +16,7 @@ export class App extends Component {
     const pick = event.target;
     const pickVariant = pick.getAttribute('variant');
     const usedVariant = pickVariant.toLowerCase();
+
     this.setState((state, props) => {
       if (usedVariant === 'good') {
         return {
