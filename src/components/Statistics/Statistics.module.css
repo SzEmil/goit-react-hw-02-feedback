@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.stats {
+  padding-bottom: 10px;
+
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  font-style: 'Roboto';
+}

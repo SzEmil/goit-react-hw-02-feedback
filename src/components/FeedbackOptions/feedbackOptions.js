@@ -1,6 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-
+import PropTypes from "prop-types";
+import clsx from 'clsx';
+import css from "./FeedbackOptions.module.css"
 export class FeedbackOptions extends Component {
   state = {};
 
@@ -8,10 +10,15 @@ export class FeedbackOptions extends Component {
     const { options, onLeaveFeedback } = this.props;
     return (
       <>
-        <button variant={options} onClick={onLeaveFeedback}>
+        <button className={clsx(css["btn"])} variant={options} onClick={onLeaveFeedback}>
           {options}
         </button>
       </>
     );
   }
+}
+
+FeedbackOptions.propTypes ={
+  options: PropTypes.string,
+  onLeaveFeedback: PropTypes.func.isRequired
 }

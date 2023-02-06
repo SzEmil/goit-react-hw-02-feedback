@@ -1,0 +1,15 @@
+.btn {
+  padding: 10px;
+  color: black;
+  font-size: 18px;
+  line-height: 12px;
+  font-weight: 400;
+  font-style: 'Roboto';
+  border: none;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+.btn:hover {
+  background-color: blue;
+  color: white;
+}

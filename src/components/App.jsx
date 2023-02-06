@@ -39,10 +39,13 @@ export class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    let positiveProcentage =
-      (this.state.good /
-        (this.state.good + this.state.neutral + this.state.bad)) *
-      100;
+    let positiveProcentage = Number(
+      Math.floor(
+        (this.state.good /
+          (this.state.good + this.state.neutral + this.state.bad)) *
+          100
+      ).toFixed(0)
+    );
 
     return isNaN(positiveProcentage) ? 0 : positiveProcentage;
   };
